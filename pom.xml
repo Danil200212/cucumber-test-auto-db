@@ -20,8 +20,9 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.18.1</version>
+            <version>4.27.0</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -111,7 +112,7 @@
             <version>3.5.0</version>
         <configuration>
             <testFailureIgnore>true</testFailureIgnore>
-            <includes>**TestRunner.java</includes>
+            <includes>**/TestRunner.java</includes>
         </configuration>
     </plugin>
 
