@@ -19,12 +19,19 @@ public class AutoTestDBSteps {
                 "jdbc:h2:tcp://localhost:9092/mem:testdb",
                 "user",
                 "pass");
-
         Statement statement = connection.createStatement();
+
     }
 
 @И("проверен список БД")
         public void исходная_БД () throws SQLException {
+
+    Connection connection = getConnection(
+            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "user",
+            "pass");
+    Statement statement = connection.createStatement();
+
     System.out.println("Исходная БД:");
     String all = "Select * FROM FOOD";
     ResultSet rs = statement.executeQuery(all);
@@ -41,6 +48,13 @@ public class AutoTestDBSteps {
 
 @И("добавление товара в список БД")
         public void добавить_товар () throws SQLException {
+
+    Connection connection = getConnection(
+            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "user",
+            "pass");
+    Statement statement = connection.createStatement();
+
         System.out.println("БД после добавления товара:");
 
         statement.executeUpdate("INSERT INTO FOOD " +
@@ -59,7 +73,14 @@ public class AutoTestDBSteps {
 }
 
     @И("добавление уже существующего товара в список БД")
-    public void добавить_товар () throws SQLException {
+    public void добавить_товар1 () throws SQLException {
+
+        Connection connection = getConnection(
+                "jdbc:h2:tcp://localhost:9092/mem:testdb",
+                "user",
+                "pass");
+        Statement statement = connection.createStatement();
+
         System.out.println("БД после добавления товара:");
 
         statement.executeUpdate("INSERT INTO FOOD " +
@@ -80,6 +101,13 @@ public class AutoTestDBSteps {
 
 @И("удаление товара из списка в БД")
 public void удалить_товар () throws SQLException {
+
+    Connection connection = getConnection(
+            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "user",
+            "pass");
+    Statement statement = connection.createStatement();
+
         System.out.println("БД после удаления товара:");
         statement.executeUpdate("DELETE FROM FOOD WHERE FOOD_NAME = 'Картофель'");
 

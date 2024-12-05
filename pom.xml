@@ -123,6 +123,7 @@
             <version>2.12.0</version>
         <configuration>
           <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+          <reportDirectory>${project.basedir}/allure-reports</reportDirectory>
       </configuration>
     </plugin>
 </plugins>

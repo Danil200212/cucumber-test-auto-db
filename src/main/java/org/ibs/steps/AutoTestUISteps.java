@@ -96,4 +96,10 @@ public class AutoTestUISteps {
         btnReset.click();
     }
 
+    @И("закрыть страницу")
+    public void закрыть_страницу () {
+        driver.close();
+        driver.quit();
+    }
+
 }
