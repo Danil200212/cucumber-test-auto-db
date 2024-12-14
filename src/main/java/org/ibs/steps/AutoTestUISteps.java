@@ -6,7 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class AutoTestUISteps {
@@ -17,11 +25,12 @@ public class AutoTestUISteps {
     public void загрузка_драйвера () {
         System.setProperty("webdriver.chromedriver.driver", "\\src\\test\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
+
     }
 
     @И("открыт сайт {string}")
     public void открыть_сайт(String string) {
-        driver.get("https://qualit.appline.ru/");
+        driver.get("https://qualit.applineselenoid.fvds.ru/");
     }
 
     @И("страница загружена")
