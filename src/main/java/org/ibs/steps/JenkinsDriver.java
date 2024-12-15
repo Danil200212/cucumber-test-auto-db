@@ -35,11 +35,6 @@ public void testVegetableAdd() throws MalformedURLException {
     // Подключение к Selenoid Hub
     WebDriver driver = new RemoteWebDriver(new URL("http://jenkins.applineselenoid.fvds.ru:4444/wd/hub"), capabilities);
 
-    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.manage().window().maximize(); // дисплей на максимум
-
-    driver.get("https://qualit.applineselenoid.fvds.ru/");  // открыли страницу
 
 //public void initRemoteDriver() {
 //    DesiredCapabilities capabilities = new DesiredCapabilities();
