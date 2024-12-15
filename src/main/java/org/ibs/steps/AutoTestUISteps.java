@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,15 +22,10 @@ public class AutoTestUISteps {
 
     private WebDriver driver;
 
-    @И("загружен драйвер")
-    public void загрузка_драйвера () {
-        System.setProperty("webdriver.chromedriver.driver", "\\src\\test\\resources\\chromedriver.exe");
-        driver = new ChromeDriver();
-
-    }
 
     @И("открыт сайт {string}")
     public void открыть_сайт(String string) {
+
         driver.get("https://qualit.applineselenoid.fvds.ru/");
     }
 
@@ -45,7 +41,8 @@ public class AutoTestUISteps {
     }
 
     @И("перейти во вкладку \"Песочница\" и выбрать раздел \"Товары\"")
-    public void перейти_во_вкладку () {
+    public void перейти_во_вкладку () throws MalformedURLException {
+
         WebElement btnSandbox = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
         btnSandbox.click();
 

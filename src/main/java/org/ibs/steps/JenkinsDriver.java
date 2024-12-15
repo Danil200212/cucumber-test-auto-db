@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class JenkinsDriver {
-//    private RemoteWebDriver driver;
+    private RemoteWebDriver driver;
 @И("драйвер Jenkins")
 
 public void testVegetableAdd() throws MalformedURLException {
