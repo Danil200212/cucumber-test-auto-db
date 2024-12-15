@@ -19,9 +19,27 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class AutoTestUISteps {
+    private RemoteWebDriver driver;
+    @И("драйвер Jenkins")
+    public void testVegetableAdd() throws MalformedURLException {
+        // Настройка ChromeOptions для Selenoid
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*"); // Добавляем аргумент для разрешения удаленного доступа
 
-    private WebDriver driver;
+        // Настройка DesiredCapabilities для Selenoid
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
+        // Добавляем параметры для Selenoid
+        Map<String, Object> selenoidOptions = new HashMap<>();
+        selenoidOptions.put("enableVNC", true); // Включение VNC
+        selenoidOptions.put("enableVideo", false); // Отключение записи видео
+        capabilities.setCapability("selenoid:options", selenoidOptions);
+
+        // Подключение к Selenoid Hub
+        WebDriver driver = new RemoteWebDriver(new URL("http://jenkins.applineselenoid.fvds.ru:4444/wd/hub"), capabilities);
+
+    }
 
     @И("открыт сайт {string}")
     public void открыть_сайт(String string) {
@@ -41,8 +59,7 @@ public class AutoTestUISteps {
     }
 
     @И("перейти во вкладку \"Песочница\" и выбрать раздел \"Товары\"")
-    public void перейти_во_вкладку () throws MalformedURLException {
-
+    public void перейти_во_вкладку () {
         WebElement btnSandbox = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
         btnSandbox.click();
 
