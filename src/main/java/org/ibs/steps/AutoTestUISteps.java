@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -60,10 +61,10 @@ public class AutoTestUISteps {
 
     @И("перейти во вкладку \"Песочница\" и выбрать раздел \"Товары\"")
     public void перейти_во_вкладку () {
-        WebElement btnSandbox = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
+        RemoteWebElement btnSandbox = (RemoteWebElement) driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
         btnSandbox.click();
 
-        WebElement btnGoods = driver.findElement(By.xpath("//a[@href='/food']"));
+        RemoteWebElement btnGoods = (RemoteWebElement) driver.findElement(By.xpath("//a[@href='/food']"));
         btnGoods.click();
     }
 
