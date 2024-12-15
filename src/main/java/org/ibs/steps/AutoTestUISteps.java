@@ -2,6 +2,7 @@ package org.ibs.steps;
 
 import io.cucumber.java.ru.И;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,10 +18,12 @@ import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class AutoTestUISteps {
     private RemoteWebDriver driver;
+
     @И("драйвер Jenkins")
     public void testVegetableAdd() throws MalformedURLException {
         // Настройка ChromeOptions для Selenoid
@@ -42,6 +45,8 @@ public class AutoTestUISteps {
 
     }
 
+
+
     @И("открыт сайт {string}")
     public void открыть_сайт(String string) {
 
@@ -61,10 +66,11 @@ public class AutoTestUISteps {
 
     @И("перейти во вкладку \"Песочница\" и выбрать раздел \"Товары\"")
     public void перейти_во_вкладку () {
-        RemoteWebElement btnSandbox = (RemoteWebElement) driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
+
+        WebElement btnSandbox = driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"));
         btnSandbox.click();
 
-        RemoteWebElement btnGoods = (RemoteWebElement) driver.findElement(By.xpath("//a[@href='/food']"));
+        WebElement btnGoods = driver.findElement(By.xpath("//a[@href='/food']"));
         btnGoods.click();
     }
 
