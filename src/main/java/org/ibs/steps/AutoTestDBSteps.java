@@ -16,7 +16,7 @@ public class AutoTestDBSteps {
     @И("подключение к БД")
     public void test() throws SQLException {
         Connection connection = getConnection(
-                "jdbc:h2:tcp://localhost:9092/mem:testdb",
+                "jdbc:h2:tcp://qualit.applineselenoid.fvds.ru/mem:testdb",
                 "user",
                 "pass");
         Statement statement = connection.createStatement();
@@ -27,7 +27,7 @@ public class AutoTestDBSteps {
         public void исходная_БД () throws SQLException {
 
     Connection connection = getConnection(
-            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "jdbc:h2:tcp://qualit.applineselenoid.fvds.ru/mem:testdb",
             "user",
             "pass");
     Statement statement = connection.createStatement();
@@ -50,7 +50,7 @@ public class AutoTestDBSteps {
         public void добавить_товар () throws SQLException {
 
     Connection connection = getConnection(
-            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "jdbc:h2:tcp://qualit.applineselenoid.fvds.ru/mem:testdb",
             "user",
             "pass");
     Statement statement = connection.createStatement();
@@ -76,7 +76,7 @@ public class AutoTestDBSteps {
     public void добавить_товар1 () throws SQLException {
 
         Connection connection = getConnection(
-                "jdbc:h2:tcp://localhost:9092/mem:testdb",
+                "jdbc:h2:tcp://qualit.applineselenoid.fvds.ru/mem:testdb",
                 "user",
                 "pass");
         Statement statement = connection.createStatement();
@@ -103,7 +103,7 @@ public class AutoTestDBSteps {
 public void удалить_товар () throws SQLException {
 
     Connection connection = getConnection(
-            "jdbc:h2:tcp://localhost:9092/mem:testdb",
+            "jdbc:h2:tcp://qualit.applineselenoid.fvds.ru/mem:testdb",
             "user",
             "pass");
     Statement statement = connection.createStatement();
