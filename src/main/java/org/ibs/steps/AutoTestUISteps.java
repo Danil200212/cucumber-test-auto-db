@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class AutoTestUISteps {
     private RemoteWebDriver driver;
 
-    @И("драйвер Jenkins")
+    @BeforeEach
     public void testVegetableAdd() throws MalformedURLException {
         // Настройка ChromeOptions для Selenoid
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -45,6 +45,11 @@ public class AutoTestUISteps {
 
     }
 
+    @И("загрузка драйвера")
+    public void загрузка_драйвера () {
+        System.setProperty("webdriver.chromedriver.driver", "\\src\\test\\resources\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
 
 
     @И("открыт сайт {string}")
